@@ -1,0 +1,39 @@
+<% include ./partials/header.ejs%>
+<link rel="stylesheet" href="/stylesheets/main.css">
+<title>Jazz ECommerce</title>
+</head>
+
+<body>
+
+<% include ./partials/navbar.ejs%>
+<section id="jazz-products">
+  <div class="container-fluid">
+    <div class="row">
+      
+      <% for(var i=0;i<products.length;i++){ %>
+          <div class="col-lg-4 col-sm-6 col-md-6 my-2" >
+          <div class="card animated fadeIn" id="show-cards" >
+              <div class="card-body" >
+               <% var product=products[i]%>
+              
+              <img src="<%= product.imagePath%>" class="img-thumbnail mx-auto" style="height:20rem">
+              <div class="clearfix">
+              <h4 class="text-capitalize float-left"><%= product.name%></h4>
+              <div class="float-right"> Jan 2019</div>
+              </div>
+              <p><%= product.description%></p>
+              <p class="text-right font-italic">-$<%= product.price%></p>
+              <div class="mx-auto">
+                  <a href="/test/posts/" class="btn btn-outline-light btn-block"> View Post</a>
+              </div>
+           </div>
+          </div>
+          </div>
+      <% } %>  
+
+    </div>
+  </div>
+</section>
+
+
+<% include ./partials/footer.ejs %>
